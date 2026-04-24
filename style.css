@@ -1,0 +1,468 @@
+/* --------1. ROOT VARIABLES & RESET -------------- */
+:root {
+  --primary: #ff8225; /* Warm Orange */
+  --primary-hover: #e5721b;
+  --secondary: #7a3a17; /* Rich Chocolate Brown */
+  --bg-color: #ffffff;
+  --bg-off-white: #fffaf5;
+  --text-dark: #2c2c2c;
+  --text-light: #f4f4f4;
+  --container-width: 1200px;
+  --border-radius: 12px;
+  --transition-speed: 0.4s;
+  --shadow-lg: 0 15px 30px rgba(122, 58, 23, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--bg-off-white);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Playfair Display", serif;
+  color: var(--secondary);
+}
+button {
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  border: none;
+  outline: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* -----------------------------------------------------------
+   2. PRELOADER
+   ----------------------------------------------------------- */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(255, 130, 37, 0.2);
+  border-top: 5px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+.preloader-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  color: var(--secondary);
+  letter-spacing: 2px;
+  animation: pulse 1.5s infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* -----------------------------------------------------------
+   3. HEADER & NAV
+   ----------------------------------------------------------- */
+header {
+  background: var(--bg-color);
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10;
+}
+.brand-logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Inter", sans-serif;
+}
+
+/* UPDATED STYLE: Normal style instead of italic */
+.brand-tagline {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+.ejebe_logo {
+  justify-content: center;
+  flex-direction: column;
+}
+.ejebe_logo img {
+  width: 50px;
+  justify-self: center;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.sticky-nav::-webkit-scrollbar {
+  display: none;
+} /* Hide scrollbar */
+
+.nav-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 1rem;
+}
+.filter-btn {
+  background: transparent;
+  color: var(--secondary);
+  border: 1px solid transparent;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover {
+  color: var(--primary);
+  background: rgba(255, 130, 37, 0.05);
+}
+.filter-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 130, 37, 0.3);
+  transform: translateY(-2px);
+}
+
+/* -----------------------------------------------------------
+   4. GALLERY
+   ----------------------------------------------------------- */
+main {
+  max-width: var(--container-width);
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  min-height: 60vh;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+.cake-card {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.cake-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.image-wrapper {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.cake-card:hover .image-wrapper img {
+  transform: scale(1.08);
+}
+.card-info {
+  padding: 1.2rem;
+  text-align: center;
+}
+.cake-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.cake-name {
+  font-size: 1.2rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+.order-hint {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #888;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+.cake-card:hover .order-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -----------------------------------------------------------
+   5. LIGHTBOX
+   ----------------------------------------------------------- */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 44, 44, 0.9);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  padding: 1rem;
+}
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content {
+  background: white;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.4s ease;
+}
+.lightbox.active .lightbox-content {
+  transform: scale(1);
+}
+
+.lb-image-container {
+  flex: 1.5;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 300px;
+}
+.lb-image-container img {
+  max-height: 85vh;
+  width: 100%;
+  object-fit: contain;
+}
+
+.lb-details {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  border-left: 1px solid #eee;
+}
+.lb-category {
+  color: var(--primary);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+}
+.lb-title {
+  font-size: 2rem;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+.lb-desc {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+.whatsapp-btn {
+  background-color: #25d366;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  align-self: flex-start;
+}
+.whatsapp-btn:hover {
+  transform: translateY(-3px);
+  background-color: #20b857;
+}
+
+/* Navigation Buttons */
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+.lb-nav:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+.lb-prev {
+  left: 20px;
+}
+.lb-next {
+  right: 20px;
+}
+
+.lb-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 30;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.lb-close:hover {
+  background: #ffe0cc;
+}
+
+/* Mobile Responsive Lightbox */
+@media (max-width: 768px) {
+  .lightbox-content {
+    flex-direction: column;
+    height: 100%;
+    border-radius: 0;
+  }
+  .lb-image-container {
+    flex: 1;
+    max-height: 50vh;
+  }
+  .lb-details {
+    flex: 1;
+    padding: 1.5rem;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+  .lb-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .lb-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Reveal Animation */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  background: var(--secondary);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: auto;
+}
+.footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}

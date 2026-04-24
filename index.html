@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJEBE KITCHEN | Premium Cake Gallery</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- EXTERNAL STYLESHEET -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ejebe logo favicon -->
+    <link rel="icon" type="image/x-icon" href="/ASSETS/ejebe logo.png">
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="spinner"></div>
+        <div class="preloader-text">EJEBE KITCHEN</div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <!-- <div class="ejebe_logo"> -->
+        <!-- <img src="/ASSETS/ejebe logo.png" alt=""> -->
+        <h1 class="brand-logo">EJEBE KITCHEN</h1>
+        <p class="brand-tagline">Crafting Moments of Sweetness</p>
+    </header>
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="sticky-nav">
+        <div class="nav-container" id="filter-container">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="decor">Decor</button>
+            <button class="filter-btn" data-category="birthday">Birthday</button>
+            <button class="filter-btn" data-category="wedding">Wedding</button>
+            <button class="filter-btn" data-category="graduation">Graduation</button>
+            <button class="filter-btn" data-category="anniversary">Anniversary</button>
+            <button class="filter-btn" data-category="holiday">Holiday</button>
+        </div>
+    </nav>
+
+    <!-- MAIN GALLERY -->
+    <main>
+        <div class="gallery-grid" id="gallery">
+            <!-- Gallery Items Injected via JS -->
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">EJEBE KITCHEN</div>
+        <p>Premium Cakes for Every Occasion</p>
+        <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 EJEBE KITCHEN. All rights reserved.</p>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="lb-close" id="lb-close" aria-label="Close Lightbox">&times;</button>
+        
+        <!-- Navigation Arrows -->
+        <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous Image">&#10094;</button>
+        <button class="lb-nav lb-next" id="lb-next" aria-label="Next Image">&#10095;</button>
+        
+        <div class="lightbox-content">
+            <div class="lb-image-container">
+                <img src="" alt="Cake Preview" id="lb-img">
+            </div>
+            <div class="lb-details">
+                <span class="lb-category" id="lb-cat">Category</span>
+                <h2 class="lb-title" id="lb-title">Cake Name</h2>
+                <p class="lb-desc">
+                    Handcrafted with the finest ingredients. This cake is perfect for your special event, 
+                    combining rich flavors with stunning design.
+                </p>
+                <a href="#" target="_blank" class="whatsapp-btn" id="lb-whatsapp">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382C17.111 14.197 15.342 13.316 15.009 13.204C14.676 13.092 14.426 13.036 14.176 13.408C13.926 13.78 13.229 14.602 13.017 14.855C12.805 15.108 12.593 15.141 12.232 14.956C11.871 14.771 10.724 14.398 9.361 13.18C8.292 12.225 7.568 11.051 7.356 10.686C7.144 10.321 7.333 10.124 7.517 9.94035C7.681 9.77735 7.779 9.65735 7.962 9.44335C8.146 9.22935 8.207 9.07135 8.329 8.81835C8.452 8.56535 8.391 8.35135 8.297 8.16635C8.203 7.98135 7.492 6.21535 7.195 5.51735C6.912 4.84935 6.621 4.94135 6.402 4.94135C6.199 4.94135 5.967 4.93435 5.735 4.93435C5.503 4.93435 5.125 5.01935 4.81 5.36735C4.495 5.71535 3.639 6.51435 3.639 8.13935C3.639 9.76435 4.848 11.335 5.02 11.588C5.192 11.841 7.485 15.392 10.967 16.806C14.449 18.22 14.449 18.22 15.022 18.22C15.595 18.22 17.617 18.07 18.128 17.26C18.639 16.45 18.639 15.775 18.483 15.623C18.327 15.471 18.037 15.375 17.472 14.382ZM12.002 22C6.478 22 2 17.522 2 12C2 6.478 6.478 2 12.002 2C17.525 2 22.002 6.478 22.002 12C22.002 17.522 17.525 22 12.002 22Z" fill="white"/>
+                    </svg>
+                    Order This Cake
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+     <script src="script.js"></script>
+</body>
+</html>
