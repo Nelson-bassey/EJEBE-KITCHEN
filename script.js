@@ -89,7 +89,7 @@ const cakes = [
     { id: 87, name: "Chocolate Overload", category: "decor", src: "ASSETS/decor(87).jpg" },
     { id: 88, name: "Chocolate Overload", category: "decor", src: "ASSETS/decor(88).jpg" },
     { id: 89, name: "Chocolate Overload", category: "decor", src: "ASSETS/decor(89).jpg" },
-    { id: 90, name: "Chocolate Overload", category: "decor", src: "ASSETS/decor(90).jpg" }
+    { id: 90, name: "Chocolate Overload", category: "decor", src: "ASSETS/decor_90.jpg" }
 ];
 
 // 2. STATE & DOM ELEMENTS
