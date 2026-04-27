@@ -477,6 +477,7 @@ main {
   }
   .nav-container {
     justify-content: flex-start;
+    height: fit-content;
   }
 }
 
