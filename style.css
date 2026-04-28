@@ -138,22 +138,22 @@ header {
   justify-self: center;
 }
 
-/* .sticky-nav {
-  background: rgba(255, 255, 255, 0.95);
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  z-index: 1000;
-  padding: 1rem 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
   overflow-x: auto;
   white-space: nowrap;
-  position: sticky; 
-  top: 0;
-  z-index: 1000;
-  -webkit-overflow-scrolling: touch;
-} */
+
+  border-bottom: 1px solid #eee;
+}
 
 
-.sticky-nav {
+/* .sticky-nav {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -163,14 +163,14 @@ header {
 
   overflow-x: auto;
   white-space: nowrap;
-}
+} */
 
-.nav-container {
+/* .nav-container {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
   padding: 0 1rem;
-}
+} */
 
 .filter-btn {
   flex: 0 0 auto;
@@ -194,7 +194,7 @@ header {
   background: transparent;
   color: var(--secondary);
   border: 1px solid transparent;
-  padding: 8px 20px;
+  padding: 10px 20px;
   border-radius: 30px;
   font-size: 0.95rem;
   font-weight: 600;
